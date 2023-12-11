@@ -1,0 +1,77 @@
+---
+title: "NIHAPI"
+---
+
+## NIHAPI
+
+The goal here is to understand the content and structure of the data we can retrieve from the NIH API, and identify the variables that will provide value to our OSPAI endeavours.  We'll read in the data from the excel file that Luke downloaded.
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(ggalt)
+
+NIH <- read_excel("idaho_nih.xlsx")
+
+```
+
+First we'll figure out what variables are there, what they mean, and which are high value.
+
+
+```{r}
+
+Variables <- NIH %>%
+  head(1)
+
+Varframe <- as.data.frame(t(Variables))
+
+write.csv(Varframe, "Varframe.csv")
+
+```
+
+
+I'll pull this .csv back into excel and try to create some annotations, but the detailed annotations are well described [here](https://api.reporter.nih.gov/documents/Data%20Elements%20for%20RePORTER%20Project%20API_V2.pdf)
+
+```{r}
+
+NIHrecent <- NIH %>%
+  filter(project_start_date > 2012-07-03) %>%
+  filter(is.na(subproject_id) == TRUE )%>%
+  select(`principal_investigators/0/last_name`, activity_code, project_serial_num, project_start_date, project_end_date)%>%
+  mutate(awardID = paste(`principal_investigators/0/last_name`, activity_code, project_serial_num))%>%
+  distinct(awardID, .keep_all = TRUE)
+  
+
+timeline <- NIHrecent %>%
+  mutate(name= awardID)%>%
+  mutate(start_parsed = lubridate::ymd_hms(project_start_date),
+         start = format(start_parsed, "%m/%d/%y"))%>%
+  mutate(end_parsed = lubridate::ymd_hms(project_end_date),
+         end = format(end_parsed, "%m/%d/%y"))%>%
+  select(name, start, end)
+
+timeline$start<-as.Date(timeline$start, format="%m/%d/%y")
+timeline$end<-as.Date(timeline$end, format="%m/%d/%y")
+
+  
+p<- ggplot(timeline, aes(x=start, xend=end, y=reorder(name, start)))+
+  geom_dumbbell(color = "lightblue",
+                colour_xend = "darkblue",
+                size = 1.0,
+                dot_guide = TRUE,
+                dot_guide_size = 0.15,
+                dot_guide_colour = "lightgrey")+
+  scale_x_date(
+    date_breaks = "1 year",          # Set breaks to occur every year
+    date_labels = "%Y"               # Set labels to display only the year
+  ) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  theme(axis.text.y = element_text(size = 4, vjust = 0.5, hjust=1))+
+  labs(y = "PI and Award ID") 
+  
+ggsave("NIH.png", plot = p, width = 10, height = 8, dpi = 300)
+
+```
+
+![](NIH.png)
+

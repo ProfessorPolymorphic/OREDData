@@ -1,0 +1,192 @@
+---
+title: "Highergov"
+format: html
+---
+
+## What is in Higher Gov?
+
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(plotly)
+
+HGcontract <- read_excel("contract-12-08-23-20-16-11.xlsx")
+HGgrant <- read_excel("grant-12-08-23-20-16-31.xlsx")
+HGidv <- read_excel("idv-12-08-23-20-13-53.xlsx")
+HGsubgrant <- read_excel("subgrant-12-08-23-20-16-38.xlsx")
+HGsubcontract <- read_excel("subcontract-12-08-23-20-16-25.xlsx")
+
+
+```
+
+
+
+```{r}
+QuickNSF<-HGgrant %>%
+  rename(TLAgency = 'Top Level Funding Agency')%>%
+  filter(TLAgency == "National Science Foundation")
+
+QuickNIH<-HGgrant %>%
+  rename(TLAgency = 'Top Level Funding Agency')%>%
+  filter(TLAgency == "Department of Health and Human Services")
+```
+
+
+```{r}
+# Load necessary libraries
+library(httr)
+library(jsonlite)
+library(tidyverse)
+
+# Base URL for the API
+base_url <- "https://www.research.gov/awardapi-service/v1/awards.json?awardeeName=%22regents+of+the+university+of+idaho%22"
+
+printFields <- "rpp,offset,id,agency,awardeeCity,awardeeCountryCode,awardeeDistrictCode,awardeeName,awardeeStateCode,awardeeZipCode,cfdaNumber,coPDPI,date,startDate,expDate,estimatedTotalAmt,fundsObligatedAmt,ueiNumber,fundProgramName,parentUeiNumber,pdPIName,perfCity,perfCountryCode,perfDistrictCode,perfLocation,perfStateCode,perfZipCode,poName,primaryProgram,transType,title,awardee,poPhone,poEmail,awardeeAddress,perfAddress,publicationResearch,publicationConference,fundAgencyCode,awardAgencyCode,projectOutComesReport,abstractText,piFirstName,piMiddeInitial,piLastName,piEmail"
+
+# Initialize an empty data frame to store results
+all_awards <- tibble()
+
+# Number of results per page (as per API settings)
+results_per_page <- 25
+
+# Variable to keep track of the current page number
+current_page <- 1
+
+# Variable to control the loop
+keep_going <- TRUE
+
+while(keep_going) {
+    # Calculate the offset for the current page
+    offset <- (current_page - 1) * results_per_page + 1
+
+    # Construct the full URL with offset
+    url <- paste0(base_url, "&offset=", offset, "&printFields=", printFields)
+
+    # Make the API call
+    response <- GET(url)
+
+    # Check if the call was successful
+    if (status_code(response) == 200) {
+        # Extract and parse the JSON data
+        json_data <- content(response, type = "text", encoding = "UTF-8")
+        parsed_data <- fromJSON(json_data, flatten = TRUE)
+
+        # Extract the 'award' data and add to the all_awards data frame
+        awards_data <- parsed_data$response$award
+        all_awards <- bind_rows(all_awards, as_tibble(awards_data))
+
+        # Debug: Print the current page number and number of awards fetched
+        print(paste("Page:", current_page, "- Awards fetched:", length(awards_data$id)))
+
+        # Check if the current page has less than results_per_page awards, then it's the last page
+        if (length(awards_data$id) < results_per_page) {
+            keep_going <- FALSE
+        } else {
+            current_page <- current_page + 1
+        }
+    } else {
+        print(paste("Failed to fetch data: Status code", status_code(response)))
+        keep_going <- FALSE
+    }
+}
+
+#write.csv(all_awards, "UINSF.csv")
+
+
+
+```
+
+## Summarize awards by year
+
+```{r}
+
+NSFYear <- all_awards %>%
+  select(estimatedTotalAmt, fundsObligatedAmt, fundProgramName,
+         id, pdPIName, startDate, expDate, title, transType, coPDPI)%>%
+  mutate(startDate = as.Date(startDate, format = "%m/%d/%Y"))%>%
+  mutate(expDate = as.Date(expDate, format = "%m/%d/%Y"))%>%
+  filter(expDate > as.Date("2018-01-01") )%>%
+  mutate(periods = ceiling(as.numeric(difftime(expDate, startDate, units = "days")) / 365.25))%>%
+  mutate(estimatedTotalAmt = as.numeric(estimatedTotalAmt))
+
+
+
+```
+
+
+```{r}
+library(lubridate)
+
+TotalAwardValue <- NSFYear %>%
+  group_by(pdPIName)%>%
+  summarise(Total = sum(as.numeric(estimatedTotalAmt)))
+
+NSFYear <- NSFYear %>%
+  group_by(pdPIName) %>%
+  mutate(totalAmt = sum(as.numeric(estimatedTotalAmt))) %>%
+  ungroup()%>%
+  mutate(startyear = year(ymd(startDate)))%>%
+  mutate(year = as.numeric(startyear))
+
+
+Tval <- ggplot(TotalAwardValue, aes(x=reorder(pdPIName, -Total), y=Total)) +
+  geom_col()
+
+ggplotly(Tval)
+
+stack_Tval <- ggplot(NSFYear, aes(x=reorder(pdPIName, -totalAmt), y = estimatedTotalAmt))+
+  geom_col( aes(fill = startyear),position = "stack")+
+  theme(legend.position = "none")+
+  scale_y_continuous(labels = scales::dollar_format(scale = 1e-6, suffix = "M")) +
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank())
+
+ggplotly(stack_Tval, tooltip = c("x", "y"))
+
+
+# plot_ly(NSFYear, x = ~reorder(pdPIName, -totalAmt), y = ~estimatedTotalAmt, 
+#         type = 'bar', 
+#         color = ~factor(startyear),
+#         text = ~paste("Additional Info: ", title))  %>% 
+#   layout(yaxis = list(title = 'Total Amount', tickformat = "$,.2f"),
+#          xaxis = list(title = '', showticklabels = FALSE),
+#          showlegend = FALSE)
+
+
+```
+
+
+```{r}
+NSFtimeline <- NSFYear %>%
+  mutate(name= paste(pdPIName, " ", estimatedTotalAmt)) %>%
+  mutate(start = as.Date(startDate, "%m/%d/%Y")) %>%  # Ensure this matches your date format
+  mutate(end = as.Date(expDate, "%m/%d/%Y")) %>%      # Ensure this matches your date format
+  select(name, start, end)
+
+
+library(ggalt)
+
+  
+q<- ggplot(NSFtimeline, aes(x=start, xend=end, y=reorder(name, start)))+
+  geom_dumbbell(color = "lightblue",
+                colour_xend = "darkblue",
+                size = 0.1,
+                dot_guide = TRUE,
+                dot_guide_size = 0.15,
+                dot_guide_colour = "lightgrey")+
+  scale_x_date(
+    date_breaks = "1 year",          # Set breaks to occur every year
+    date_labels = "%Y"               # Set labels to display only the year
+  ) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  theme(axis.text.y = element_text(size = 4, vjust = 0.5, hjust=1))+
+  labs(y = "PI and Award ID") 
+
+q
+  
+
+
+
+```
+[]

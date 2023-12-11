@@ -1,0 +1,114 @@
+"","V1"
+"appl_id","10794448"
+"subproject_id",NA
+"fiscal_year","2023"
+"project_num","1R01GM152736-01"
+"project_serial_num","GM152736"
+"organization/org_name","UNIVERSITY OF IDAHO"
+"organization/city",NA
+"organization/country",NA
+"organization/org_city","MOSCOW"
+"organization/org_country","UNITED STATES"
+"organization/org_state","ID"
+"organization/org_state_name",NA
+"organization/dept_type","BIOSTATISTICS & OTHER MATH SCI"
+"organization/fips_country_code",NA
+"organization/org_duns/0","75746271"
+"organization/org_ueis/0","QWYKRJH5NNJ3"
+"organization/primary_duns","75746271"
+"organization/primary_uei","QWYKRJH5NNJ3"
+"organization/org_fips","US"
+"organization/org_ipf_code","3543501"
+"organization/org_zipcode","838443020"
+"organization/external_org_id","3543501"
+"award_type","1"
+"activity_code","R01"
+"award_amount","171789"
+"is_active","TRUE"
+"project_num_split/appl_type_code","1"
+"project_num_split/activity_code","R01"
+"project_num_split/ic_code","GM"
+"project_num_split/serial_num","152736"
+"project_num_split/support_year","1"
+"project_num_split/full_support_year","1"
+"project_num_split/suffix_code",NA
+"principal_investigators/0/profile_id","78953889"
+"principal_investigators/0/first_name","Esteban"
+"principal_investigators/0/middle_name","Aberlardo"
+"principal_investigators/0/last_name","Hernandez Vargas"
+"principal_investigators/0/is_contact_pi","TRUE"
+"principal_investigators/0/full_name","Esteban Aberlardo Hernandez Vargas"
+"principal_investigators/0/title","ASSISTANT PROFESSOR"
+"contact_pi_name","HERNANDEZ VARGAS, ESTEBAN ABERLARDO"
+"program_officers/0/first_name","Han"
+"program_officers/0/middle_name",NA
+"program_officers/0/last_name","Nguyen"
+"program_officers/0/full_name","Han  Nguyen"
+"agency_ic_admin/code","GM"
+"agency_ic_admin/abbreviation","NIGMS"
+"agency_ic_admin/name","National Institute of General Medical Sciences"
+"agency_ic_fundings/0/fy","2023"
+"agency_ic_fundings/0/code","GM"
+"agency_ic_fundings/0/name","National Institute of General Medical Sciences"
+"agency_ic_fundings/0/abbreviation","NIGMS"
+"agency_ic_fundings/0/total_cost","171789"
+"cong_dist","ID-01"
+"spending_categories/0",NA
+"project_start_date","2023-09-26T12:09:00Z"
+"project_end_date","2026-08-31T12:08:00Z"
+"organization_type/name","SCHOOLS OF ARTS AND SCIENCES"
+"organization_type/code","10"
+"organization_type/is_other","FALSE"
+"opportunity_number","PAR-23-003"
+"full_study_section/srg_code","ZGM1"
+"full_study_section/srg_flex",NA
+"full_study_section/sra_designator_code","BBCB"
+"full_study_section/sra_flex_code","U"
+"full_study_section/group_code","BM"
+"full_study_section/name","Special Emphasis Panel[ZGM1 BBCB-U (BM)]"
+"award_notice_date","2023-09-25T12:09:00Z"
+"is_new","FALSE"
+"mechanism_code_dc","RP"
+"core_project_num","R01GM152736"
+"terms","<Math Models><mathematic model><mathematical modeling><viral respiratory infection><fiction><improved><Biological><biologic><mathematical model><Viral Respiratory Tract Infection><Etiology><Immunomodulation><immune modulation><immune regulation><immunologic reactivity control><immunomodulatory><immunoregulatory><fictional works><Modeling><attenuation><prevent><immunoregulation><novel><theories><Data><design><pandemic influenza><Immune Targeting><predictive modeling><computerized tools><data integration><Address><Predictive Value><Molecular><flu virus pandemic><influenza virus pandemic><pandemic flu><pandemic strain of influenza><computer based prediction><prediction model><computational tools><designing><math sciences><mathematic sciences><Differential Algebraic Equation><math methodology><math methods><mathematical approach><mathematical methodology><mathematics approach><mathematics methodology><mathematics methods><Bioscience><Life Sciences><Viral><Severity of illness><Disorder><respiratory><Training><Scientist><Immune response><Therapeutic><Equation><Dimensions><Immune><Severities><Machine Learning><Event><Knowledge><Techniques><System><Viral Diseases><viral infection><virus infection><virus-induced disease><Laboratory Finding><Collaborations><Biologic Sciences><Teaching><innovate><innovative><machine learned algorithm><machine learning based algorithm><viral pathogen><virus pathogen><coinfection><social role><experiment><experimental research><Cellular model><experiments><computer algorithm><Computing Methodologies><Hybrids><Play><Morbidity - disease rate><mortality><Equilibrium><Mathematics><Mus><Disease><Idaho><Europe><Family><preventing><Pathology><Causality><causation><disease causation><Immune system><Dangerousness><Immunologic Factors><Immunotherapy><Infection><Biological Sciences><Influenza><Antigen-Antibody Complex><Biology><Biomedical Research><Mice><Immunological Factors><immunologic substance><immunological substance><Mice Mammals><Immune mediated therapy><Murine><Immunologically Directed Therapy><immune therapeutic approach><immune therapeutic interventions><immune therapeutic regimens><immune therapeutic strategy><immune therapy><computational methodology><computational methods><computer based method><computer methods><computing method><immune-based therapies><immune-based treatments><immuno therapy><Math><Grippe><Morbidity><balance><balance function><Lab Findings><COVID-19 epidemic><COVID-19 global health crisis><COVID-19 global pandemic><COVID-19 health crisis><COVID-19 public health crisis><COVID19 crisis><COVID19 epidemic><COVID19 global health crisis><COVID19 global pandemic><innovation><COVID19 health crisis><COVID19 pandemic><COVID19 public health crisis><SARS-CoV-2 epidemic><SARS-CoV-2 global health crisis><SARS-CoV-2 global pandemic><SARS-CoV-2 pandemic><SARS-CoV2 epidemic><SARS-CoV2 pandemic><SARS-coronavirus-2 epidemic><co-infection><SARS-coronavirus-2 pandemic><Severe Acute Respiratory Syndrome CoV 2 epidemic><Severe Acute Respiratory Syndrome CoV 2 pandemic><Severe acute respiratory syndrome coronavirus 2 epidemic><Severe acute respiratory syndrome coronavirus 2 pandemic><corona virus disease 2019 epidemic><corona virus disease 2019 pandemic><coronavirus disease 2019 crisis><coronavirus disease 2019 epidemic><coronavirus disease 2019 global health crisis><coronavirus disease 2019 global pandemic><coronavirus disease 2019 health crisis><coronavirus disease 2019 pandemic><Immunological response><host response><immune system response><severe acute respiratory syndrome coronavirus 2 global pandemic><immunoresponse><2019 novel corona virus><2019 novel coronavirus><COVID-19 virus><coronavirus disease 2019 public health crisis><coronavirus disease crisis><coronavirus disease epidemic><coronavirus disease pandemic><coronavirus disease-19 global pandemic><coronavirus disease-19 pandemic><severe acute respiratory syndrome coronavirus 2 global health crisis><Immunes><COVID19 virus><CoV-2><CoV2><SARS corona virus 2><SARS-CO-V2><SARS-COVID-2><SARS-CoV-2><SARS-CoV2><SARS-associated corona virus 2><SARS-associated coronavirus 2><SARS-coronavirus-2><SARS-related corona virus 2><SARS-related coronavirus 2><SARSCoV2><Severe Acute Respiratory Coronavirus 2><mathematical methods><Severe Acute Respiratory Distress Syndrome CoV 2><Severe Acute Respiratory Distress Syndrome Corona Virus 2><Severe Acute Respiratory Distress Syndrome Coronavirus 2><Severe Acute Respiratory Syndrome CoV 2><Severe Acute Respiratory Syndrome-associated coronavirus 2><Severe Acute Respiratory Syndrome-related coronavirus 2><Severe acute respiratory syndrome associated corona virus 2><disease severity><machine based learning><Severe acute respiratory syndrome coronavirus 2><Severe acute respiratory syndrome related corona virus 2><Wuhan coronavirus><coronavirus disease 2019 virus><coronavirus disease-19 virus><hCoV19><nCoV2><Computerized Models><computational modeling><computational models><computer based models><computerized modeling><large data sets><machine learning based method><machine learning methodologies><COVID crisis><COVID epidemic><COVID pandemic><COVID-19 crisis><Testing><high risk><high reward><Virus Diseases><Virus><Time><mathematical sciences><Differential Equation><experimental study><computational suite><Innate Immune System><high dimensionality><Rhinovirus><Cell model><2019-nCoV><Computer Models><Methods><Role><Computational algorithm><human disease><machine learning algorithm><Science><large datasets><biological systems><complex biological systems><Public Health><Public Policy><pathogenic virus><machine learning method><Parameter Estimation><Generations><Immune Complex><Measures><Mediating><sound><COVID-19 pandemic><Universities><influenza infection><Educational process of instructing><flu infection><flu virus infection><infected with flu><infected with flu virus><infected with influenza><infected with influenza virus><influenza virus infection>"
+"pref_terms","2019-nCoV;Address;Antigen-Antibody Complex;Biological;Biological Sciences;Biology;Biomedical Research;COVID-19 pandemic;Cell model;Collaborations;Computational algorithm;Computer Models;Computing Methodologies;Dangerousness;Data;Differential Equation;Dimensions;Disease;Educational process of instructing;Equation;Equilibrium;Etiology;Europe;Event;Family;Generations;Hybrids;Idaho;Immune;Immune Targeting;Immune response;Immune system;Immunologic Factors;Immunotherapy;Infection;Influenza;Innate Immune System;Knowledge;Laboratory Finding;Machine Learning;Mathematics;Measures;Mediating;Methods;Modeling;Molecular;Morbidity - disease rate;Mus;Parameter Estimation;Pathology;Play;Predictive Value;Public Health;Public Policy;Rhinovirus;Role;Science;Scientist;Severities;Severity of illness;System;Techniques;Testing;Therapeutic;Time;Training;Universities;Viral;Viral Respiratory Tract Infection;Virus;Virus Diseases;attenuation;biological systems;co-infection;complex biological systems;computational suite;computerized tools;data integration;design;experimental study;fictional works;high dimensionality;high reward;high risk;human disease;immunoregulation;improved;influenza infection;innovation;large datasets;machine learning algorithm;machine learning method;mathematical methods;mathematical model;mathematical sciences;mortality;novel;pandemic influenza;pathogenic virus;predictive modeling;prevent;respiratory;sound;theories"
+"abstract_text","Most quantitative models in biomedical research have been formulated by ordinary differential equations 
+(ODEs). Despite the great contributions ODEs have made to biology and beyond, the high-dimensional, 
+time-dependent factors of the immune system still pose a significant challenge to the predictive value of 
+ODEs as it would require several hundred equations and thousands of parameters to be estimated. The 
+recent rise of machine learning as a powerful computational tool to integrate large datasets presents a 
+special opportunity to deal with the inherent complexity of biological systems. However, machine learning 
+approaches do not consider the mechanistic knowledge of the underlying interactions. Preliminary studies 
+that combine ODEs and machine learning highlight that these computational algorithms could be on the 
+cusp of a major revolution. Remarkably enough, however, no parameter estimation theory exists to 
+integrate simultaneously both approaches. We propose to create new hybrid models and test their 
+predictions in a mouse viral coinfection system to address a central vexation for infection biology which is 
+how and when to modulate immune responses to mitigate mortality during lethal respiratory viral infection. 
+At the interface between mathematical and life sciences, we will develop and analyze a novel suite of 
+computational models that will integrate the underlying biological mechanisms to manage ill-posed 
+problems and explore massive design spaces, allowing for robust predictions from complex biological 
+systems. To validate and test our novel and foundational mathematical approaches, we will generate the 
+biological data from a mouse infection system with a mild viral pathogen (rhinovirus) two days before 
+infection with a lethal viral pathogen (influenza) that results in reduced disease compared to single infection 
+alone. We hypothesize that this system can train our mathematical models in a natural way how the innate 
+immune system can be manipulated to reduce mortality to lethal infections and beyond. Key model 
+predictions will be tested by targeted immune system manipulation during lethal infection, paving the way to 
+understanding the role of complex immune interactions in respiratory viral disease pathology."
+"project_title","Novel Hybrid Computational Models to Disentangle Complex Immune Responses"
+"phr_text","Innate immune manipulation holds enormous promise for reducing the severity of infections and other 
+human diseases. A new family of computational tools will be developed for predicting the multidimensional 
+time events of the innate immune that prevent mortality during lethal respiratory viral infections. Without 
+such a mathematical framework in place, the design of immunotherapies will be slowed, or worse, 
+dangerous, and faulty."
+"spending_categories_desc",NA
+"agency_code","NIH"
+"covid_response/0",NA
+"arra_funded","N"
+"budget_start","2023-09-26T12:09:00Z"
+"budget_end","2024-08-31T12:08:00Z"
+"cfda_code","859"
+"funding_mechanism","Non-SBIR/STTR"
+"direct_cost_amt","120828"
+"indirect_cost_amt","50961"
+"project_detail_url","https://reporter.nih.gov/project-details/10794448"
+"date_added","2023-09-30T04:09:50Z"
